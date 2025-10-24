@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      // Get the path from the URL and redirect to index.html with the path as a hash
+      // Get the path from the URL and redirect to index.html with the correct base path
       const path = window.location.pathname;
-      window.location.href = '/kimi-bauwelten/index.html' + (path.startsWith('/kimi-bauwelten/') ? path.replace('/kimi-bauwelten', '') : path);
+      const base = '/kimi-bauwelten-main';
+      const newPath = path.startsWith(base) ? path : base + path;
+      window.location.href = `${base}/index.html${newPath.replace(base, '')}`;
     </script>
   </head>
   <body>

@@ -86,7 +86,7 @@ const Dienstleistungen = () => {
       </section>
 
       {/* Drainage Section */}
-      <section className="py-20 bg-muted">
+      {/* <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 animate-fade-in break-words">Badabläufe und Duschrinnen</h2>
@@ -103,7 +103,7 @@ const Dienstleistungen = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

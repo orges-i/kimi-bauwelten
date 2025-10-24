@@ -9,7 +9,7 @@ export default defineConfig(({ mode, command }) => {
   const isBuild = command === 'build';
   
   return {
-    base: isBuild ? '/' : '/',
+    base: isBuild ? '/kimi-bauwelten/kimi-bauwelten-main/' : '/',
     server: {
       host: "0.0.0.0",
       port: 8080,

@@ -9,7 +9,7 @@ export default defineConfig(({ mode, command }) => {
   const isBuild = command === 'build';
   
   return {
-base: isBuild ? '/kimi-bauwelten/' : '/',
+    base: isBuild ? '/kimi-bauwelten/' : '/',
     server: {
       host: "0.0.0.0",
       port: 8080,
@@ -37,16 +37,15 @@ base: isBuild ? '/kimi-bauwelten/' : '/',
       outDir: 'dist',
       assetsDir: 'assets',
       sourcemap: isDev,
-      // Ensure public files are copied to the build output
+      // This ensures that the 404.html is copied to the root
       copyPublicDir: true,
       rollupOptions: {
         output: {
           manualChunks: undefined,
-          // Ensure consistent chunking for better caching
           entryFileNames: `assets/[name].[hash].js`,
           chunkFileNames: `assets/[name].[hash].js`,
           assetFileNames: `assets/[name].[hash].[ext]`
-        },
+        }
       },
       // Ensure proper chunking for better loading performance
       chunkSizeWarningLimit: 1000,

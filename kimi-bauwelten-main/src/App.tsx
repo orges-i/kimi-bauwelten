@@ -24,13 +24,13 @@ const App = () => (
   <TooltipProvider>
     <Toaster />
     <Sonner />
-    <BrowserRouter
-      basename="/kimi-bauwelten"
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
-    >
+   <BrowserRouter
+  basename={import.meta.env.PROD ? "/kimi-bauwelten" : "/"}
+  future={{
+    v7_startTransition: true,
+    v7_relativeSplatPath: true,
+  }}
+>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />

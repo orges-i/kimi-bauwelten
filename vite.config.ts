@@ -9,7 +9,7 @@ export default defineConfig(({ mode, command }) => {
   const isBuild = command === 'build';
   
   return {
-    base: '/',
+    base: '/kimi-bauwelten/',
     server: {
       host: "0.0.0.0",
       port: 8080,
@@ -37,6 +37,8 @@ export default defineConfig(({ mode, command }) => {
       outDir: 'dist',
       assetsDir: 'assets',
       sourcemap: isDev,
+      // Ensure assets are loaded from the correct path
+      assetsInlineLimit: 0,
       // This ensures that the 404.html is copied to the root
       copyPublicDir: true,
       rollupOptions: {

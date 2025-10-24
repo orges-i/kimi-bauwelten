@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import UberUns from "./pages/UberUns";
@@ -24,7 +24,7 @@ const App = () => (
   <TooltipProvider>
     <Toaster />
     <Sonner />
-   <HashRouter>
+   <BrowserRouter basename="/kimi-bauwelten">
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
@@ -34,7 +34,7 @@ const App = () => (
         <Route path="/kontakt" element={<Kontakt />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </TooltipProvider>
 );
 

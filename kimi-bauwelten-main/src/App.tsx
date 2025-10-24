@@ -25,6 +25,7 @@ const App = () => (
     <Toaster />
     <Sonner />
     <BrowserRouter
+      basename="/kimi-bauwelten"
       future={{
         v7_startTransition: true,
         v7_relativeSplatPath: true,

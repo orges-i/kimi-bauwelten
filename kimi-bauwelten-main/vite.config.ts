@@ -9,7 +9,7 @@ export default defineConfig(({ mode, command }) => {
   const isBuild = command === 'build';
   
   return {
-    base: isBuild ? '/kimi-bauwelten/' : '/',
+    base: isBuild ? '/' : '/',
     server: {
       host: "0.0.0.0",
       port: 8080,
@@ -35,6 +35,8 @@ export default defineConfig(({ mode, command }) => {
       outDir: 'dist',
       assetsDir: 'assets',
       sourcemap: isDev,
+      // Ensure public files are copied to the build output
+      copyPublicDir: true,
       rollupOptions: {
         output: {
           manualChunks: undefined,

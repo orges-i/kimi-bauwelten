@@ -18,6 +18,8 @@ base: isBuild ? '/kimi-bauwelten/' : '/',
       proxy: {
         // Add any API proxies here if needed
       },
+      // This ensures that all routes are handled by index.html for client-side routing
+      historyApiFallback: true,
     },
     plugins: [
       react({

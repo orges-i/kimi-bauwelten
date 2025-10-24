@@ -4,19 +4,41 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      // GitHub Pages SPA redirect
-      const segmentCount = 0;
-      const l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      // Single Page Apps for GitHub Pages - MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        // If the current URL contains a directory, that same directory is used as the first path segment
+        // in the 404.html URL
+        var segmentCount = 0;
+        var l = window.location;
+        l.replace(
+          l.protocol + '//' + l.host + 
+          (l.pathname.split('/').slice(0, 1 + segmentCount).join('/').replace(/\/$/, '') || '') +
+          '/?/' +
+          l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      }());
+    </script>
+    <script>
+      // This script is needed for the redirect to work properly when the app is not at the root
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
     </script>
   </head>
   <body>
-    <p>Redirecting...</p>
+    <p>Redirecting to app...</p>
+    <script>
+      // Fallback in case the redirect doesn't work
+      setTimeout(function() {
+        window.location.href = '/kimi-bauwelten';
+      }, 1000);
+    </script>
   </body>
 </html>

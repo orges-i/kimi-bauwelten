@@ -1,6 +1,46 @@
-# Welcome to your Lovable project
+# Kimi Bauwelten
 
-## Project info
+A modern React application built with Vite, TypeScript, and shadcn/ui.
+
+## 🚀 Deployment
+
+## 🚀 Deployment to GitHub Pages
+
+This project is set up to be deployed to GitHub Pages. Follow these steps to deploy:
+
+1. Make sure your project is pushed to a GitHub repository named `kimi-bauwelten` (or update the `homepage` field in `package.json` if using a different repository name)
+2. Run the following commands:
+
+```bash
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
+```
+
+3. Go to your repository on GitHub > Settings > Pages
+4. Under "Source", select "gh-pages" branch and "/ (root)" folder
+5. Click "Save"
+
+Your site should be live at: https://orges-i.github.io/kimi-bauwelten
+
+## 🛠️ Development
+
+To run the project locally:
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+## Project Information
 
 **URL**: https://lovable.dev/projects/77541e12-d208-4c38-b0ab-2404fa6c2cf9
 

@@ -4,10 +4,12 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
   const isDev = mode === 'development';
+  const isBuild = command === 'build';
   
   return {
+    base: isBuild ? '/kimi-bauwelten/' : '/',
     server: {
       host: "0.0.0.0",
       port: 8080,
@@ -41,8 +43,6 @@ export default defineConfig(({ mode }) => {
       // Ensure proper chunking for better loading performance
       chunkSizeWarningLimit: 1000,
     },
-    // Use relative paths for better compatibility
-    base: isDev ? '/' : './',
     define: {
       'process.env': {}
     },

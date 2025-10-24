@@ -9,7 +9,7 @@ export default defineConfig(({ mode, command }) => {
   const isBuild = command === 'build';
   
   return {
-    base: isBuild ? '/kimi-bauwelten/kimi-bauwelten-main/' : '/',
+    base: isBuild ? '/kimi-bauwelten/' : '/',
     server: {
       host: "0.0.0.0",
       port: 8080,
@@ -40,10 +40,18 @@ export default defineConfig(({ mode, command }) => {
       rollupOptions: {
         output: {
           manualChunks: undefined,
+          // Ensure consistent chunking for better caching
+          entryFileNames: `assets/[name].[hash].js`,
+          chunkFileNames: `assets/[name].[hash].js`,
+          assetFileNames: `assets/[name].[hash].[ext]`
         },
       },
       // Ensure proper chunking for better loading performance
       chunkSizeWarningLimit: 1000,
+      // Minify the build for production
+      minify: isDev ? false : 'terser',
+      // Enable brotli compression
+      brotliSize: !isDev,
     },
     define: {
       'process.env': {}
